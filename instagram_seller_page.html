@@ -1,0 +1,494 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Organic Honey and Jams from Himachal Farm</title>
+  <!-- Google Fonts: Quicksand for headings, Lora for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            quicksand: ['Quicksand', 'sans-serif'],
+            lora: ['Lora', 'serif'],
+          },
+          colors: {
+            'warm-ivory': '#FAF4EE',
+            'honey-gold': '#E3B778',
+            'forest': '#3C5233',
+            'earth': '#7C5F38',
+            'oat': '#F6E9DB',
+            'mulberry': '#BF5B5B',
+            'sunset': '#F6963B',
+          },
+        },
+      }
+    }
+  </script>
+  <style>
+    html, body { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-warm-ivory font-lora text-forest min-h-screen flex flex-col">
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center bg-warm-ivory py-10 md:py-16 px-4 sm:px-8 md:px-20">
+    <div class="flex-1 mb-8 md:mb-0 order-2 md:order-1">
+      <h1 class="font-quicksand text-3xl md:text-5xl text-earth font-bold mb-3">
+        Bringing Himachal’s Pure Goodness to Your Table
+      </h1>
+      <p class="mb-4 text-lg text-earth font-lora">
+        Discover authentic, organic honey and jams crafted in the pristine hills of Himachal. Each jar is a taste of tradition—fresh from our farms, free of chemicals or shortcuts. Treat your family to real sweetness, unmatched flavor, and total peace of mind.
+      </p>
+      <ul class="mb-6 text-base md:text-lg text-forest list-none space-y-2">
+        <li class="flex items-start">
+          <svg class="w-5 h-5 text-honey-gold mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l3.293-3.293a1 1 0 111.414 1.414z"/></svg>
+          100% organic—only farm-fresh ingredients, never preservatives
+        </li>
+        <li class="flex items-start">
+          <svg class="w-5 h-5 text-honey-gold mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l3.293-3.293a1 1 0 111.414 1.414z"/></svg>
+          Certified purity and honest transparency for worry-free enjoyment
+        </li>
+        <li class="flex items-start">
+          <svg class="w-5 h-5 text-honey-gold mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l3.293-3.293a1 1 0 111.414 1.414z"/></svg>
+          Traditional, bold flavors that support your healthy lifestyle
+        </li>
+        <li class="flex items-start">
+          <svg class="w-5 h-5 text-honey-gold mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l3.293-3.293a1 1 0 111.414 1.414z"/></svg>
+          Bulk purchase discounts and convenient subscriptions available
+        </li>
+        <li class="flex items-start">
+          <svg class="w-5 h-5 text-honey-gold mr-2 mt-1" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707l-4 4a1 1 0 01-1.414 0l-2-2a1 1 0 111.414-1.414L9 10.586l3.293-3.293a1 1 0 111.414 1.414z"/></svg>
+          Enjoy secure payments and Cash-on-Delivery for risk-free shopping
+        </li>
+      </ul>
+      <a href="#products" class="inline-block bg-honey-gold text-forest font-quicksand font-bold px-7 py-3 rounded-full shadow-md hover:bg-sunset transition">
+        Order Now for Farm-Fresh Goodness!
+      </a>
+    </div>
+    <div class="flex justify-center flex-1 mb-6 md:mb-0 order-1 md:order-2">
+      <img 
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80"
+        alt="Himachal Farm Honey and Jams Hero" 
+        class="rounded-xl shadow-xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-cover border-4 border-oat"
+        loading="eager"
+      />
+    </div>
+  </section>
+
+  <!-- Product Gallery Section -->
+  <section id="products" class="bg-warm-ivory py-8 sm:py-12 px-4 md:px-16 flex-1">
+    <h2 class="font-quicksand text-2xl md:text-3xl text-center font-bold text-earth mb-6 md:mb-10">Our Organic Selection</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Wildflower Organic Honey -->
+      <div id="product-wildflower-organic-honey" class="bg-oat rounded-xl shadow-lg p-5 flex flex-col">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80"
+          alt="Wildflower Organic Honey"
+          class="rounded-lg mb-4 shadow w-full h-44 object-cover"
+          loading="lazy"
+        />
+        <h3 class="font-quicksand text-xl font-semibold text-forest mb-1">Wildflower Organic Honey</h3>
+        <p class="font-lora text-sm text-earth mb-2">Harvested from Himachal’s wild blossoms, this raw and unfiltered honey bursts with natural sweetness and floral aroma. A golden treat for your tea, toast, or desserts—experience true purity in every spoon.</p>
+        <span class="block text-honey-gold font-bold text-lg mb-4">₹500</span>
+        <div class="flex gap-2 mt-auto">
+          <button 
+            id="add-to-cart-wildflower-organic-honey"
+            class="bg-honey-gold text-forest font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset transition flex-1"
+            onclick="addToCart('wildflower-organic-honey', 500)"
+            data-item-id="wildflower-organic-honey"
+            data-price-inr="500"
+          >Add to Cart</button>
+          <div 
+            id="qty-control-wildflower-organic-honey"
+            class="flex items-center bg-white rounded-full px-3 py-1 shadow gap-3 flex-1"
+            style="display: none;"
+          >
+            <button type="button" aria-label="Decrease" onclick="decrementQuantity('wildflower-organic-honey')" class="text-earth font-bold text-xl px-2 focus:outline-none">-</button>
+            <span id="qty-val-wildflower-organic-honey" class="font-quicksand text-forest text-lg select-none w-6 text-center">1</span>
+            <button type="button" aria-label="Increase" onclick="incrementQuantity('wildflower-organic-honey')" class="text-earth font-bold text-xl px-2 focus:outline-none">+</button>
+          </div>
+          <button 
+            id="buy-now-wildflower-organic-honey"
+            class="border-2 border-honey-gold text-honey-gold font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset hover:text-white transition flex-1"
+            onclick="buyNow('wildflower-organic-honey', 500)"
+            data-item-id="wildflower-organic-honey"
+            data-price-inr="500"
+          >Buy Now</button>
+        </div>
+      </div>
+      <!-- Himalayan Apple Jam -->
+      <div id="product-himalayan-apple-jam" class="bg-oat rounded-xl shadow-lg p-5 flex flex-col">
+        <img
+          src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80"
+          alt="Himalayan Apple Jam"
+          class="rounded-lg mb-4 shadow w-full h-44 object-cover"
+          loading="lazy"
+        />
+        <h3 class="font-quicksand text-xl font-semibold text-forest mb-1">Himalayan Apple Jam</h3>
+        <p class="font-lora text-sm text-earth mb-2">Relish the taste of handpicked Himachal apples, slowly simmered into a wholesome, traditional jam. Free from preservatives, it’s a nostalgic, healthy spread perfect for breakfast or snacks.</p>
+        <span class="block text-honey-gold font-bold text-lg mb-4">₹350</span>
+        <div class="flex gap-2 mt-auto">
+          <button 
+            id="add-to-cart-himalayan-apple-jam"
+            class="bg-honey-gold text-forest font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset transition flex-1"
+            onclick="addToCart('himalayan-apple-jam', 350)"
+            data-item-id="himalayan-apple-jam"
+            data-price-inr="350"
+          >Add to Cart</button>
+          <div 
+            id="qty-control-himalayan-apple-jam"
+            class="flex items-center bg-white rounded-full px-3 py-1 shadow gap-3 flex-1"
+            style="display: none;"
+          >
+            <button type="button" aria-label="Decrease" onclick="decrementQuantity('himalayan-apple-jam')" class="text-earth font-bold text-xl px-2 focus:outline-none">-</button>
+            <span id="qty-val-himalayan-apple-jam" class="font-quicksand text-forest text-lg select-none w-6 text-center">1</span>
+            <button type="button" aria-label="Increase" onclick="incrementQuantity('himalayan-apple-jam')" class="text-earth font-bold text-xl px-2 focus:outline-none">+</button>
+          </div>
+          <button 
+            id="buy-now-himalayan-apple-jam"
+            class="border-2 border-honey-gold text-honey-gold font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset hover:text-white transition flex-1"
+            onclick="buyNow('himalayan-apple-jam', 350)"
+            data-item-id="himalayan-apple-jam"
+            data-price-inr="350"
+          >Buy Now</button>
+        </div>
+      </div>
+      <!-- Plum Preserve -->
+      <div id="product-plum-preserve" class="bg-oat rounded-xl shadow-lg p-5 flex flex-col">
+        <img
+          src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
+          alt="Plum Preserve"
+          class="rounded-lg mb-4 shadow w-full h-44 object-cover"
+          loading="lazy"
+        />
+        <h3 class="font-quicksand text-xl font-semibold text-forest mb-1">Plum Preserve</h3>
+        <p class="font-lora text-sm text-earth mb-2">Enjoy a vibrant, tangy-sweet preserve made from ripe, organic Himachal plums. Crafted in small batches to preserve home-style goodness and original tart flavor—delightful on breads or as a dessert topping.</p>
+        <span class="block text-honey-gold font-bold text-lg mb-4">₹300</span>
+        <div class="flex gap-2 mt-auto">
+          <button 
+            id="add-to-cart-plum-preserve"
+            class="bg-honey-gold text-forest font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset transition flex-1"
+            onclick="addToCart('plum-preserve', 300)"
+            data-item-id="plum-preserve"
+            data-price-inr="300"
+          >Add to Cart</button>
+          <div 
+            id="qty-control-plum-preserve"
+            class="flex items-center bg-white rounded-full px-3 py-1 shadow gap-3 flex-1"
+            style="display: none;"
+          >
+            <button type="button" aria-label="Decrease" onclick="decrementQuantity('plum-preserve')" class="text-earth font-bold text-xl px-2 focus:outline-none">-</button>
+            <span id="qty-val-plum-preserve" class="font-quicksand text-forest text-lg select-none w-6 text-center">1</span>
+            <button type="button" aria-label="Increase" onclick="incrementQuantity('plum-preserve')" class="text-earth font-bold text-xl px-2 focus:outline-none">+</button>
+          </div>
+          <button 
+            id="buy-now-plum-preserve"
+            class="border-2 border-honey-gold text-honey-gold font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset hover:text-white transition flex-1"
+            onclick="buyNow('plum-preserve', 300)"
+            data-item-id="plum-preserve"
+            data-price-inr="300"
+          >Buy Now</button>
+        </div>
+      </div>
+      <!-- Mixed Fruit Jam -->
+      <div id="product-mixed-fruit-jam" class="bg-oat rounded-xl shadow-lg p-5 flex flex-col">
+        <img
+          src="https://images.unsplash.com/photo-1506089676908-3592f7389d4d?auto=format&fit=crop&w=400&q=80"
+          alt="Mixed Fruit Jam"
+          class="rounded-lg mb-4 shadow w-full h-44 object-cover"
+          loading="lazy"
+        />
+        <h3 class="font-quicksand text-xl font-semibold text-forest mb-1">Mixed Fruit Jam</h3>
+        <p class="font-lora text-sm text-earth mb-2">A celebration of the farm’s bounty—this mixed fruit jam combines several organic, seasonal Himachal fruits into a bright and naturally sweet gem. A family favorite for every morning.</p>
+        <span class="block text-honey-gold font-bold text-lg mb-4">₹400</span>
+        <div class="flex gap-2 mt-auto">
+          <button 
+            id="add-to-cart-mixed-fruit-jam"
+            class="bg-honey-gold text-forest font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset transition flex-1"
+            onclick="addToCart('mixed-fruit-jam', 400)"
+            data-item-id="mixed-fruit-jam"
+            data-price-inr="400"
+          >Add to Cart</button>
+          
+          <div 
+            id="qty-control-mixed-fruit-jam"
+            class="flex items-center bg-white rounded-full px-3 py-1 shadow gap-3 flex-1"
+            style="display: none;"
+          >
+            <button type="button" aria-label="Decrease" onclick="decrementQuantity('mixed-fruit-jam')" class="text-earth font-bold text-xl px-2 focus:outline-none">-</button>
+            <span id="qty-val-mixed-fruit-jam" class="font-quicksand text-forest text-lg select-none w-6 text-center">1</span>
+            <button type="button" aria-label="Increase" onclick="incrementQuantity('mixed-fruit-jam')" class="text-earth font-bold text-xl px-2 focus:outline-none">+</button>
+          </div>
+          <button 
+            id="buy-now-mixed-fruit-jam"
+            class="border-2 border-honey-gold text-honey-gold font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset hover:text-white transition flex-1"
+            onclick="buyNow('mixed-fruit-jam', 400)"
+            data-item-id="mixed-fruit-jam"
+            data-price-inr="400"
+          >Buy Now</button>
+        </div>
+      </div>
+      <!-- Premium Multi-Floral Honey -->
+      <div id="product-premium-multi-floral-honey" class="bg-oat rounded-xl shadow-lg p-5 flex flex-col">
+        <img
+          src="https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=400&q=80"
+          alt="Premium Multi-Floral Honey"
+          class="rounded-lg mb-4 shadow w-full h-44 object-cover"
+          loading="lazy"
+        />
+        <h3 class="font-quicksand text-xl font-semibold text-forest mb-1">Premium Multi-Floral Honey</h3>
+        <p class="font-lora text-sm text-earth mb-2">Our finest honey, collected from a lavish variety of Himachal’s flourishing flowers. Rich, smooth, and impeccably pure—enjoy this luxurious nectar for wellness and taste that’s truly unmatched.</p>
+        <span class="block text-honey-gold font-bold text-lg mb-4">₹800</span>
+        <div class="flex gap-2 mt-auto">
+          <button 
+            id="add-to-cart-premium-multi-floral-honey"
+            class="bg-honey-gold text-forest font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset transition flex-1"
+            onclick="addToCart('premium-multi-floral-honey', 800)"
+            data-item-id="premium-multi-floral-honey"
+            data-price-inr="800"
+          >Add to Cart</button>
+          <div 
+            id="qty-control-premium-multi-floral-honey"
+            class="flex items-center bg-white rounded-full px-3 py-1 shadow gap-3 flex-1"
+            style="display: none;"
+          >
+            <button type="button" aria-label="Decrease" onclick="decrementQuantity('premium-multi-floral-honey')" class="text-earth font-bold text-xl px-2 focus:outline-none">-</button>
+            <span id="qty-val-premium-multi-floral-honey" class="font-quicksand text-forest text-lg select-none w-6 text-center">1</span>
+            <button type="button" aria-label="Increase" onclick="incrementQuantity('premium-multi-floral-honey')" class="text-earth font-bold text-xl px-2 focus:outline-none">+</button>
+          </div>
+          <button 
+            id="buy-now-premium-multi-floral-honey"
+            class="border-2 border-honey-gold text-honey-gold font-quicksand font-semibold px-5 py-2 rounded-full shadow hover:bg-sunset hover:text-white transition flex-1"
+            onclick="buyNow('premium-multi-floral-honey', 800)"
+            data-item-id="premium-multi-floral-honey"
+            data-price-inr="800"
+          >Buy Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-3xl mx-auto mt-12 bg-oat rounded-lg shadow p-5 flex flex-col sm:flex-row gap-4 items-center justify-center text-sm sm:text-base font-quicksand text-forest">
+      <span class="flex items-center mr-2">
+        <svg class="h-5 w-5 text-honey-gold mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 8.707a1 1 0 00-1.414-1.414L10 12.586l-2.293-2.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l6-6z" /></svg>
+        Bulk discounts available
+      </span>
+      <span class="flex items-center mr-2">
+        <svg class="h-5 w-5 text-honey-gold mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 1016 0A8 8 0 002 10zm11-3a1 1 0 10-2 0v3a1 1 0 00.293.707l2 2a1 1 0 001.414-1.414L13 10.586V7z"/></svg>
+        Subscription plans available
+      </span>
+      <span class="flex items-center">
+        <svg class="h-5 w-5 text-honey-gold mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M17 9V7a5 5 0 10-10 0v2a2 2 0 00-2 2v5a5 5 0 0010 0v-5a2 2 0 00-2-2zm-8-2a3 3 0 116 0v2H9V7zm6 8a3 3 0 11-6 0v-4h6v4z"/></svg>
+        Cash-on-Delivery &amp; secure payment
+      </span>
+    </div>
+  </section>
+
+  <!-- Floating View Cart / Checkout Button -->
+  <button 
+    id="view-cart-btn"
+    class="fixed z-50 bottom-5 right-4 bg-sunset text-white font-quicksand font-bold px-6 py-3 rounded-full shadow-xl flex items-center gap-2 hover:shadow-2xl transition sm:px-8 sm:py-4 text-lg"
+    style="display: block;">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h14l1-7H6.4M7 13l-1.293 1.293a1 1 0 00-.293.707V17a1 1 0 001 1h12a1 1 0 001-1v-2a1 1 0 00-.293-.707L17 13H7zM16 17a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+    View Cart (<span id="cart-count">0</span>)
+  </button>
+
+  <script>
+  // ======= GLOBAL CART STATE =======
+  const cartItems = {}; // Format: { [itemId]: { quantity: N, price: P } }
+  const productPrices = {
+    "wildflower-organic-honey": 500,
+    "himalayan-apple-jam": 350,
+    "plum-preserve": 300,
+    "mixed-fruit-jam": 400,
+    "premium-multi-floral-honey": 800
+  };
+  // For testing, replace with real Pinelabs API collections in production!
+  const pinelabs_api_collection = {
+    "token_endpoint": "https://api.pinelabs.com/v1/generate-token",
+    "checkout_copy_endpoint": "https://pay.pinelabs.com/checkout"
+  };
+
+  // ======= BUY NOW =======
+  function buyNow(itemId, itemPriceInr) {
+    const amountPaise = itemPriceInr * 100;
+    const orderId = generateOrderId();
+    const url = `${pinelabs_api_collection.checkout_copy_endpoint}?amount=${amountPaise}&currency=INR&item_id=${itemId}&order_id=${orderId}`;
+    window.location.href = url;
+  }
+
+  // ======= ADD TO CART =======
+  function addToCart(itemId, itemPriceInr) {
+    if (!cartItems[itemId]) {
+      cartItems[itemId] = { quantity: 1, price: itemPriceInr };
+      transformButtonToQtyControl(itemId, 1); // initial quantity
+    } else {
+      cartItems[itemId].quantity += 1;
+      updateQtyDisplay(itemId, cartItems[itemId].quantity);
+    }
+    updateOverallCartDisplay();
+  }
+
+  function transformButtonToQtyControl(itemId, quantity) {
+    // Hide 'Add to Cart' button
+    const addBtn = document.getElementById('add-to-cart-' + itemId);
+    if (addBtn) addBtn.style.display = 'none';
+
+    // Show quantity control
+    const qtyControl = document.getElementById('qty-control-' + itemId);
+    if (qtyControl) qtyControl.style.display = 'flex';
+
+    updateQtyDisplay(itemId, quantity);
+  }
+
+  function revertQtyControlToButton(itemId) {
+    // Show 'Add to Cart' button
+    const addBtn = document.getElementById('add-to-cart-' + itemId);
+    if (addBtn) addBtn.style.display = '';
+
+    // Hide quantity control
+    const qtyControl = document.getElementById('qty-control-' + itemId);
+    if (qtyControl) qtyControl.style.display = 'none';
+  }
+
+  // ======= INCREMENT/DECREMENT =======
+  function decrementQuantity(itemId) {
+    if (cartItems[itemId]) {
+      cartItems[itemId].quantity -= 1;
+      if (cartItems[itemId].quantity <= 0) {
+        delete cartItems[itemId];
+        revertQtyControlToButton(itemId);
+      } else {
+        updateQtyDisplay(itemId, cartItems[itemId].quantity);
+      }
+      updateOverallCartDisplay();
+    }
+  }
+  function incrementQuantity(itemId) {
+    if (cartItems[itemId]) {
+      cartItems[itemId].quantity += 1;
+      updateQtyDisplay(itemId, cartItems[itemId].quantity);
+      updateOverallCartDisplay();
+    }
+  }
+
+  function updateQtyDisplay(itemId, quantity) {
+    const qtySpan = document.getElementById('qty-val-' + itemId);
+    if (qtySpan) qtySpan.innerText = quantity;
+  }
+
+  // ======= CART DISPLAY (FLOATING BUTTON) =======
+  function updateOverallCartDisplay() {
+    const uniqueCount = Object.keys(cartItems).length;
+    let totalQuantity = 0, totalInr = 0;
+    for (const key in cartItems) {
+      totalQuantity += cartItems[key].quantity;
+      totalInr += cartItems[key].price * cartItems[key].quantity;
+    }
+    const viewCartBtn = document.getElementById('view-cart-btn');
+    const cartCount = document.getElementById('cart-count');
+    if (uniqueCount > 0) {
+      viewCartBtn.style.display = '';
+      cartCount.innerText = totalQuantity;
+      viewCartBtn.innerHTML = `
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h14l1-7H6.4M7 13l-1.293 1.293a1 1 0 00-.293.707V17a1 1 0 001 1h12a1 1 0 001-1v-2a1 1 0 00-.293-.707L17 13H7zM16 17a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        View Cart (<span id="cart-count">${totalQuantity}</span>)
+      `;
+    } else {
+      viewCartBtn.style.display = 'none';
+      cartCount.innerText = '0';
+    }
+  }
+
+  // ======= CHECKOUT CART LOGIC =======
+  async function checkoutCart() {
+    const uniqueCount = Object.keys(cartItems).length;
+    if (uniqueCount === 0) return;
+
+    // 1. Compose items & amounts
+    let totalAmountInPaise = 0;
+    let itemIds = [];
+    for (const itemId in cartItems) {
+      totalAmountInPaise += cartItems[itemId].price * cartItems[itemId].quantity * 100;
+      itemIds.push(itemId);
+    }
+    const item_ids = itemIds.join(',');
+    const orderId = generateOrderId();
+
+    // 2. Get token (mock for now), normally: POST token_endpoint
+    let token = await getPinelabsToken();
+
+    // 3. Call checkout copy endpoint (simulate/construct checkout URL)
+    const ck_url = `${pinelabs_api_collection.checkout_copy_endpoint}?amount=${totalAmountInPaise}&currency=INR&item_ids=${encodeURIComponent(item_ids)}&order_id=${orderId}`;
+
+    // 4. Redirect user
+    window.location.href = ck_url;
+
+    // 5. Clear cart & reset UI
+    clearAndResetCart();
+  }
+
+  // ======= (PINELABS TOKEN SIMULATION) =======
+  async function getPinelabsToken() {
+    // For this demo, return dummy string
+    return "dummy-token";
+  }
+
+  // ======= UI RESET AFTER CHECKOUT =======
+  function clearAndResetCart() {
+    // Clear in-memory cart
+    for (let id in cartItems) { // Remove all items
+      revertQtyControlToButton(id);
+      delete cartItems[id];
+    }
+    updateOverallCartDisplay();
+  }
+
+  // ======= ORDER ID GENERATOR =======
+  function generateOrderId() {
+    return 'order_' + Date.now() + '_' + Math.floor(1000 + Math.random()*9000);
+  }
+
+  // ======= ATTACH BUTTON LISTENERS ON DOM LOAD =======
+  document.addEventListener('DOMContentLoaded', function() {
+    // Product IDs from template
+    const products = [
+      { id: "wildflower-organic-honey", price: 500 },
+      { id: "himalayan-apple-jam", price: 350 },
+      { id: "plum-preserve", price: 300 },
+      { id: "mixed-fruit-jam", price: 400 },
+      { id: "premium-multi-floral-honey", price: 800 }
+    ];
+    products.forEach(product => {
+      // Buy Now
+      const buyBtn = document.getElementById('buy-now-' + product.id);
+      if (buyBtn) {
+        buyBtn.onclick = function() { buyNow(product.id, product.price); };
+        buyBtn.setAttribute('data-item-id', product.id);
+        buyBtn.setAttribute('data-price-inr', product.price);
+      }
+      // Add to Cart
+      const addBtn = document.getElementById('add-to-cart-' + product.id);
+      if (addBtn) {
+        addBtn.onclick = function() { addToCart(product.id, product.price); };
+        addBtn.setAttribute('data-item-id', product.id);
+        addBtn.setAttribute('data-price-inr', product.price);
+      }
+      // Insert Qty Control (hidden initially) IF not already in DOM (should be)
+    });
+
+    // View Cart Button hookup
+    const viewCartBtn = document.getElementById('view-cart-btn');
+    if (viewCartBtn) {
+      viewCartBtn.onclick = checkoutCart;
+    }
+
+    updateOverallCartDisplay();
+  });
+  </script>
+</body>
+</html>
+```
