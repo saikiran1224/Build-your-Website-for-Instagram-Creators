@@ -10,11 +10,6 @@ import re
 
 def trigger_shop_crew(user_input):
     # --- Configuration ---
-    # You'll typically configure your LLM here. For local development or specific LLMs,
-    # you might set environment variables or pass configurations directly.
-    # For example, if using OpenAI:
-    # os.environ["OPENAI_API_KEY"] = "YOUR_OPENAI_API_KEY"
-    # os.environ["OPENAI_MODEL_NAME"] = "gpt-4o" # Or whichever model you prefer
     llm = LLM(
             model="gemini/gemini-2.0-flash", # call model by provider/model_name
             temperature=0.8, # 0.8 is default
@@ -33,7 +28,8 @@ def trigger_shop_crew(user_input):
             "how to showcase multiple product items effectively."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     # 2. UI/UX Designer Agent
@@ -47,7 +43,8 @@ def trigger_shop_crew(user_input):
             "galleries and listings using Tailwind CSS."
         ),
         verbose=True,
-        allow_delegation=True
+        allow_delegation=True,
+        llm=llm
     )
 
     # 3. Content Generator Agent
@@ -60,7 +57,8 @@ def trigger_shop_crew(user_input):
             "You can generate descriptions for multiple product variations or items."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     # 4. Image Suggester Agent
@@ -73,7 +71,8 @@ def trigger_shop_crew(user_input):
             "and fit the theme and requirements for a range of product items by utilizing image search tools."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     # 5. Payment Gateway Integrator Agent
@@ -88,7 +87,8 @@ def trigger_shop_crew(user_input):
             "supporting both direct purchase and cart functionalities."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     # 6. Code Assembler Agent
@@ -101,7 +101,8 @@ def trigger_shop_crew(user_input):
             "and adherence to web standards."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     # --- Tasks Definition ---
@@ -131,7 +132,8 @@ def trigger_shop_crew(user_input):
             "Example: {'main_product_name': 'Handmade Ceramic Mugs', 'product_items': [{'item_name': 'Blue Glaze Mug', 'item_keywords': ['blue', 'unique glaze'], 'item_image_theme': 'blue ceramic mug', 'item_id': 'blue-glaze-mug', 'item_price_inr': 799}, ...]}"
         ),
         agent=product_analyst,
-        verbose=True # Enable verbose output for debugging
+        verbose=True, # Enable verbose output for debugging
+        llm=llm
     )
 
     # 2. UI/UX Design Task (Modified for Buy Now/Add to Cart)
@@ -156,6 +158,17 @@ def trigger_shop_crew(user_input):
             "The design should be modern, clean, and suitable for an Instagram seller's audience. "
             "Ensure to use Tailwind CSS classes for styling and plan for JavaScript interactivity (e.g., button clicks to initiate payment or add to cart)."
             "The complete webpage structure should be production friendly and ready to be deployed and can be used in a production environment immediately."
+
+            """When delegating tasks, STRICTLY ENSURE the following fields are provided:
+            - task: A string describing the specific task to be delegated
+            - context: A string providing the relevant context for the task
+            - coworker: A string specifying the role/name of the team member to delegate to
+            Example:
+            {
+                "task": "Extract job details from the LinkedIn",
+                "context": "The job ad is located at the following URL xxxxx",
+                "coworker": "Data Extraction Specialist"
+            }"""
         ),
         expected_output=(
             "A complete HTML string representing the page structure. "
@@ -168,7 +181,8 @@ def trigger_shop_crew(user_input):
             "Ensure responsiveness is thoroughly implemented using Tailwind's responsive prefixes (sm:, md:, lg:)."
         ),
         agent=ui_ux_designer,
-        context=[analyze_product_task]  # Provide context from the product analysis task
+        context=[analyze_product_task],  # Provide context from the product analysis task
+        llm=llm
     )
 
     # 3. Content Generation Task (Modified)
@@ -188,7 +202,8 @@ def trigger_shop_crew(user_input):
             "A JSON object containing: `overall_headline`, `overall_description`, `overall_benefits_list` (list of strings), "
             "`overall_button_text`, `product_items_content` (list of dictionaries, each with `item_id`, `item_title`, `item_description`, `buy_now_button_text`, `add_to_cart_button_text`, `item_price_inr`)." # Updated button texts
         ),
-        agent=content_generator
+        agent=content_generator,
+        llm=llm
     )
 
     # 4. Image Suggestion Task (Modified)
@@ -205,7 +220,8 @@ def trigger_shop_crew(user_input):
         expected_output=(
             "A JSON object with keys: `main_hero_image_url`, `product_item_image_urls` (list of dictionaries, each with `item_id` and `image_url`)."
         ),
-        agent=image_suggester
+        agent=image_suggester,
+        llm=llm
     )
 
     # 5. Payment Gateway Integrator Agent (Modified for Cart Functionality)
@@ -219,7 +235,8 @@ def trigger_shop_crew(user_input):
             "supporting both direct purchase and cart functionalities."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     create_payment_button_task = Task(
@@ -232,6 +249,7 @@ def trigger_shop_crew(user_input):
             "    -   Construct the URL: `https://pay.pinelabs.com/checkout?amount=amount_in_paise&currency=INR&item_id=item_id&order_id=unique_order_id`. "
             "    -   Convert `itemPriceInr` to paise (amount * 100). "
             "    -   Generate a `unique_order_id` in the format `order_timestamp_random_number` (timestamp in milliseconds, random number between 1000-9999). "
+            "    -   STRICTLY CREATE A FUNCTION DEFINITION IN the `buyNow(itemId, itemPriceInr)` at the end titled "callPineLabs(amount_in_paise, item_id, order_id)` that constructs the URL. "
             "3.  **`addToCart(itemId, itemPriceInr)` Function:** "
             "    -   When initially clicked, it should: "
             "        -   STRICTLY Set the quantity for `itemId` in `cartItems` to 1. "
@@ -259,8 +277,8 @@ def trigger_shop_crew(user_input):
             "    -   Calculate the `total_amount_in_paise` from all items in `cartItems` (sum of `itemPriceInr * quantity` for all items). "
             "    -   Collect all `item_id`s from `cartItems` (e.g., `item_ids=mug1,mug2`). "
             "    -   Generate a `unique_order_id` in the format `order_timestamp_random_number`. "
-            "    -   
             "    -   Clear the `cartItems` and reset all product quantity UIs to their initial 'Add to Cart' button state. "
+            "    -   Create a function named 'callPineAPI(amount_in_paise, item_ids, order_id)' that constructs the URL. The function definition is already written"
             "**HTML Structure for Buttons:** "
             "Provide the HTML structure for 'Buy Now' and 'Add to Cart' buttons, ensuring they have appropriate `onclick` events "
             "and `data-item-id`, `data-price-inr` attributes for easy JavaScript access. "
@@ -275,7 +293,8 @@ def trigger_shop_crew(user_input):
             "`view_cart_button_html_template` (HTML string for the 'View Cart / Checkout' button, initially hidden and showing a count, with its `onclick` event)."
         ),
         agent=payment_integrator,
-        context=[analyze_product_task, design_page_task] # Needs product info for price/id and page structure for button placement
+        llm=llm,
+        context=[analyze_product_task, design_page_task], # Needs product info for price/id and page structure for button placement
     )
 
     # 6. Code Assembler Agent
@@ -288,7 +307,8 @@ def trigger_shop_crew(user_input):
             "and adherence to web standards."
         ),
         verbose=True,
-        allow_delegation=False
+        allow_delegation=False,
+        llm=llm
     )
 
     assemble_webpage_task = Task(
@@ -321,7 +341,8 @@ def trigger_shop_crew(user_input):
             generate_content_task,
             suggest_images_task,
             create_payment_button_task
-        ]
+        ],
+        llm=llm
     )
 
     # --- Crew Definition ---

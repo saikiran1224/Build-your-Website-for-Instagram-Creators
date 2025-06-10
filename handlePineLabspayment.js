@@ -100,6 +100,8 @@ document.getElementById('checkout-button').addEventListener('click', async () =>
         // --- Step 3: Call checkout copy ---
 
         const checkoutUrl = "https://pluraluat.v2.pinepg.in/api/checkout/v1/orders";
+        
+        const checkoutMerchantOrderReference = orderData.merchant_order_reference; // Use order reference from previous step or generate a new one
         const checkoutHeaders = {
             'Merchant-ID': '110553', // EXPOSED
             'Content-Type': 'application/json',
@@ -108,7 +110,7 @@ document.getElementById('checkout-button').addEventListener('click', async () =>
         };
 
         const checkoutPayload = {
-            "merchant_order_reference": `order-${Date.now()}-${Math.floor(Math.random() * 1000)}`, // Simple unique ID
+            "merchant_order_reference": checkoutMerchantOrderReference, // Simple unique ID
             "order_amount": {
                 "value": finalAmount,
                 "currency": "INR"
