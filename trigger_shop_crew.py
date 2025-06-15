@@ -159,16 +159,20 @@ def trigger_shop_crew(user_input):
             "Ensure to use Tailwind CSS classes for styling and plan for JavaScript interactivity (e.g., button clicks to initiate payment or add to cart)."
             "The complete webpage structure should be production friendly and ready to be deployed and can be used in a production environment immediately."
 
-            """When delegating tasks, STRICTLY ENSURE the following fields are provided:
-            - task: A string describing the specific task to be delegated
-            - context: A string providing the relevant context for the task
-            - coworker: A string specifying the role/name of the team member to delegate to
+            "When delegating tasks, STRICTLY ENSURE the following fields are provided:"
+            "- task: A string describing the specific task to be delegated"
+            "- context: A string providing the relevant context for the task"
+            "- coworker: A string specifying the role/name of the team member to delegate to"
+
+            """
             Example:
-            {
+            ```json
                 "task": "Extract job details from the LinkedIn",
                 "context": "The job ad is located at the following URL xxxxx",
                 "coworker": "Data Extraction Specialist"
-            }"""
+            ```
+            """
+         
         ),
         expected_output=(
             "A complete HTML string representing the page structure. "
@@ -215,7 +219,7 @@ def trigger_shop_crew(user_input):
             "Provide one main image URL for the hero section and at least one image URL for EACH product item. "
             "These should be actual relevant image URLs from reputable public domain image sites (e.g., Unsplash, Pexels, Pixabay). "
             "Ensure appropriate dimensions (e.g., main: 900x400; items: 400x300) and that they are visually appealing. "
-            "If actual image URLs are not feasible within the environment, use `https://placehold.co/` with highly descriptive text to indicate the intended image content (e.g., `https://placehold.co/900x400/D3D3D3/000000?text=Artisanal+Ceramic+Mugs+Collection`)."
+            "You should display relevenat images based on the description fetched from Unsplash, Pexels, or Pixabay ONLY. "
         ),
         expected_output=(
             "A JSON object with keys: `main_hero_image_url`, `product_item_image_urls` (list of dictionaries, each with `item_id` and `image_url`)."
@@ -243,7 +247,7 @@ def trigger_shop_crew(user_input):
         description=(
            """ "Create the JavaScript functions and initial state logic to handle 'Buy Now', 'Add to Cart', quantity updates, and 'Checkout Cart' actions. "
             "**Strict Guidelines for Quantity Control and Cart Logic:** "
-            "1.  **Global Cart State:** Initialize a global `cartItems` object (e.g., itemId: quantity: N, price: P, ...}) to store selected product IDs, their quantities, and prices. "
+            "1.  **Global Cart State:** Initialize a global `cartItems` object (e.g., itemId: quantity: N, price: P, ...) to store selected product IDs, their quantities, and prices. "
             "2.  **`buyNow(itemId, itemPriceInr)` Function:** "
             "    -   This function should immediately redirect to Pinelabs for a single item. "
             "    -   Construct the URL: `https://pay.pinelabs.com/checkout?amount=amount_in_paise&currency=INR&item_id=item_id&order_id=unique_order_id`. "
@@ -372,7 +376,7 @@ def trigger_shop_crew(user_input):
 
     print("\n--- Webpage Generation Complete! ---")
     print("\nFinal HTML Output:\n")
-    print(result, "Token usage: ",result.token_usage)
+    print(f"{result} Token usage: {result.token_usage}")
 
     # # Creating the REGEX to extract the HTML content from the result
     # pattern = r"```html\n(.*?)```"
@@ -391,5 +395,4 @@ def trigger_shop_crew(user_input):
     #     print("No content found in the result.")
 
     return result.raw
-
 
